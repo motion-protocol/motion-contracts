@@ -196,7 +196,7 @@ contract ExitHandler is DepositHandler {
         tokens[currentExit.color].addr.transferFrom(address(this), currentExit.owner, currentExit.amount);
       }
       // Pay exit stake
-      address(uint160(currentExit.owner)).transfer(currentExit.stake);
+      address(uint160(currentExit.owner)).send(currentExit.stake);
     }
 
     tokens[currentExit.color].delMin();

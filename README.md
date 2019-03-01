@@ -1,4 +1,4 @@
-# LeapDAO Bridge implementation
+# Motion Protocol Bridge implementation
 [![Build Status](https://travis-ci.org/leapdao/leap-contracts.svg?branch=master)](https://travis-ci.org/leapdao/leap-contracts)
 # Development
 

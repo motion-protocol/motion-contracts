@@ -7,6 +7,7 @@
 
 const RoyaltiesSplitter = artifacts.require('RoyaltiesSplitter');
 const ERC1948 = artifacts.require('./mocks/ERC1948');
+require('./helpers/setup');
 
 function replaceAll(str, find, replace) {
     return str.replace(new RegExp(find, 'g'), replace.replace('0x', '').toLowerCase());
@@ -33,6 +34,13 @@ contract('RoyaltiesSplitter', (accounts) => {
   // eslint-disable-next-line no-undef
   afterEach(() => {
     RoyaltiesSplitter._json.bytecode = originalByteCode; // eslint-disable-line no-underscore-dangle
+  });
+
+  it('can sort 1', async () => {
+    const splitter = await RoyaltiesSplitter.new();
+    const hash1 = await splitter.sortAndHash([ADDR_1], [AMOUNT]);
+    const hash = '0x3274b7ee060fa41bf0a20baf8a4edc7330dc073acaabe6570e0361187b407a29';
+    assert.equal(hash1, hash);
   });
 
   it('can sort 2', async () => {
